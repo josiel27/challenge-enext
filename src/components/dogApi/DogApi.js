@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { Alert } from 'reactstrap';
 
 class DogApi extends Component {
   constructor(props) {
     super(props);
-    this.state = { listDogAPI: [] };
+    this.state = { listDogAPI: [], visibleAlert: false };
     console.log(this.getDogApiLIst());
 
     this.getDogApiLIst = this.getDogApiLIst.bind(this);
@@ -21,9 +22,6 @@ class DogApi extends Component {
       .then(json => {
         try {
           let listDogAPI = [json.message];
-
-          // let asd = JSON.parse(listDogAPI);
-          console.log(listDogAPI);
           this.setState({ listDogAPI });
         } catch (error) {
           console.log(error);
@@ -37,29 +35,34 @@ class DogApi extends Component {
 
   }
 
-
+  onShowAlert = () => {
+    this.setState({ visibleAlert: true }, () => {
+      window.setTimeout(() => {
+        this.setState({ visibleAlert: false })
+      }, 2000)
+    });
+  }
 
   render() {
+
+    let options = [];
+    this.state.listDogAPI.map(((data) => {
+      for (const key in data) {
+        options.push(<option>{key}</option>)
+      }
+      return options;
+    }))
+
     return (
       <div className="list-dog-api">
-        {/* {
-          this.state.listDogAPI.map(key => (
-            <select key={key}>
-              {this.state.data.map(({ [key]: value }) => <option key={value}>{value}</option>)}
-            </select>
-          ))} */}
 
-        {
-          this.state.listDogAPI.map(((cloud, index) =>
-            console.log(cloud)
-            // <th key={`${cloud}`}>
-            //   <div>teste</div>
-            // </th>
-            // < select key={`${cloud.cloud}${index}`}>
+        <Alert color="primary" isOpen={this.state.visibleAlert}>
+          This is a primary alert with <a href="#" className="alert-link">an example link</a>. Give it a click if you like.
+       </Alert>
 
-            // </select>
-          ))
-        }
+        <select>{options}</select>
+        <button  onClick={() => { this.onShowAlert() }}>TESTE</button>
+
       </div>
     );
   }
