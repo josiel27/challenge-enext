@@ -1,0 +1,20 @@
+.alert{
+    position: fixed;
+    top: 10px;
+    margin: 0 auto;
+    right: 0px;
+    left: 0px;
+    width: 500px;
+}
+
+.dog-img{
+    width: 350px;
+}
+
+.dog-img, .select-breed, .input-name-dog, .button-save{
+    margin: 5px;
+}
+
+.input-name-dog{
+    font-family: 'Josefin Sans', sans-serif;
+}
