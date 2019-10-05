@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Alert, Container, Row, Col } from 'reactstrap';
+import { Alert, Container, Row } from 'reactstrap';
 import "./DogApi.css";
 import ImageDefaultDog from "../../assets/images/defaultDog.jpg";
 
@@ -9,8 +9,10 @@ class DogApi extends Component {
     this.state = {
       listDogAPI: [],
       imgDogSelected: ImageDefaultDog,
-      visibleAlert: false,
+      visibleAlertSuccess: false,
+      visibleAlertFail: false,
       optionsState: 'defaultValue',
+      dateTime: Date(),
       fontStyle: {
         color: "black",
         fontFamily: "'Arial', sans-serif",
@@ -20,6 +22,13 @@ class DogApi extends Component {
     };
 
 
+    // esse for carregara todos o elementos salvos no local storage
+    let objectTest = new Object();
+    for (const key in this.state) {
+      objectTest[key] = JSON.parse(localStorage.getItem(`@challenge-enext/${key}`));
+    }
+
+    (this.state.dateTime) ? this.state = objectTest : console.log('Registro Limpo');
 
     this.getDogApiLIst = this.getDogApiLIst.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -28,7 +37,7 @@ class DogApi extends Component {
   }
 
   componentDidMount() {
-    this.getDogApiLIst();
+    this.getDogApiLIst();//chama a funcao para carregar o select com as raças
   }
 
   //Recebe a a imagem randomica da raça do cachorro selecionado
@@ -70,11 +79,35 @@ class DogApi extends Component {
     this.setState({ fontStyle: { fontFamily: this.state.fontStyle.fontFamily, color: event.target.value } })
   }
 
+  //salva as informacoes no local storage
+  // window.location.reload(); //usado para recarregar pagina
+  handleSubmit() {
+
+    try {
+      this.setState({ dateTime: new Date() });//salvando a data/hora do insercao no local storage
+      for (const key in this.state) {
+        localStorage.setItem(`@challenge-enext/${key}`, JSON.stringify(this.state[key]));
+      }
+      return this.render(<Alert className="alert" color="success"> ASDASD </Alert>)
+    } catch (error) {
+
+    }
+  }
+
   //Mostrta o alert de sucesso
-  onShowAlert = () => {
-    this.setState({ visibleAlert: true }, () => {
+  onShowAlertSuccess = () => {
+    this.setState({ visibleAlertSuccess: true }, () => {
       window.setTimeout(() => {
-        this.setState({ visibleAlert: false })
+        this.setState({ visibleAlertSuccess: false })
+      }, 2000)
+    });
+  }
+
+  //Mostrta o alert de falha
+  onShowAlertFail = () => {
+    this.setState({ visibleAlertFail: true }, () => {
+      window.setTimeout(() => {
+        this.setState({ visibleAlertFail: false })
       }, 2000)
     });
   }
@@ -110,7 +143,12 @@ class DogApi extends Component {
 
 
       <div className="list-dog-api" >
-        <Alert className="alert" color="primary" isOpen={this.state.visibleAlert}>
+        <Alert className="alert" color="success" isOpen={this.state.visibleAlertSuccess}>
+          Raça selcionada foi: &nbsp; {this.state.optionsState};
+         
+        </Alert>
+
+        <Alert className="alert" color="danger" isOpen={this.state.visibleAlertFail}>
           Raça selcionada foi: &nbsp;
           <a href={`https://www.google.com/search?q=${this.state.optionsState}`} className="alert-link" target="_blank">
             {this.state.optionsState}
@@ -151,7 +189,7 @@ class DogApi extends Component {
           <Row>
             <input className="input-name-dog form-control" style={this.state.fontStyle} placeholder="Digite o nome do cachorro"></input>
           </Row>
-          <button className="button-save" onClick={() => { this.onShowAlert() }}>Salvar</button>
+          <button className="button-save btn btn-info" onClick={() => { this.handleSubmit() }}>Salvar</button>
         </Container>
 
 
