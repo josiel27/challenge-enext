@@ -1,18 +1,19 @@
 import React, { Component } from "react";
-import { Alert, Container, Row } from 'reactstrap';
+import { Alert, Container, Row, Col } from 'reactstrap';
 import "./DogApi.css";
+import ImageDefaultDog from "../../assets/images/defaultDog.jpg";
 
 class DogApi extends Component {
   constructor(props) {
     super(props);
     this.state = {
       listDogAPI: [],
-      imgDogSelected: "http://www.citydogshare.org/assets/default_dog-f1f5e5aa031ad0a956a936dc4fb4bde95c712f2ad1f99e883b5bc58d22aec668.jpg",
+      imgDogSelected: ImageDefaultDog,
       visibleAlert: false,
       optionsState: 'defaultValue',
       fontStyle: {
-        color: "blue",
-        fontFamily: "'Anton', sans-serif"
+        color: "black",
+        fontFamily: "'Arial', sans-serif",
       },
       listColorFonts: ['Blue', 'Red', 'Purple', "Green", 'Black'],
       listFonts: ['Acme', 'Anton', 'Josefin Sans', "Notable", 'Roboto']
@@ -92,11 +93,13 @@ class DogApi extends Component {
     }))
 
     //Preenche o select com as fonts 
+    listFontsSelect.push(<option key='defaultValue' value='defaultValue'>Selecione uma font</option>)
     this.state.listFonts.forEach(element => {
       listFontsSelect.push(<option key={element} value={element}>{element}</option>)
     });
 
     //Preenche o select com as cores de fonts 
+    listColorFonts.push(<option key='defaultValue' value='defaultValue'>Selecione uma cor</option>)
     this.state.listColorFonts.forEach(element => {
       listColorFonts.push(<option key={element} value={element}>{element}</option>)
     });
@@ -119,18 +122,36 @@ class DogApi extends Component {
             <img className="dog-img" src={this.state.imgDogSelected} alt="A cool dog" />
           </Row>
           <Row>
-            <select className="select-breed" value={this.state.optionsState} onChange={this.handleChange} >{options}</select>
+            <select
+              className="select-breed custom-select"
+              value={this.state.optionsState}
+              onChange={this.handleChange}
+            >
+              {options}
+            </select>
           </Row>
           <Row>
-            <select className="select-font-family" value={this.state.fontStyle.fontFamily} onChange={this.handleChangeFontFamily} >{listFontsSelect}</select>
+            <select
+              className="select-font-family custom-select"
+              value={this.state.fontStyle.fontFamily}
+              onChange={this.handleChangeFontFamily}
+            >
+              {listFontsSelect}
+            </select>
           </Row>
           <Row>
-            <select className="select-font-family" value={this.state.fontStyle.color} onChange={this.handleChangeFontColor} >{listColorFonts}</select>
+            <select
+              className="select-font-color custom-select"
+              value={this.state.fontStyle.color}
+              onChange={this.handleChangeFontColor}
+            >
+              {listColorFonts}
+            </select>
           </Row>
           <Row>
-            <input className="input-name-dog" style={this.state.fontStyle}></input>
+            <input className="input-name-dog form-control" style={this.state.fontStyle} placeholder="Digite o nome do cachorro"></input>
           </Row>
-          <button className="button-save" onClick={() => { this.onShowAlert() }}>TESTE</button>
+          <button className="button-save" onClick={() => { this.onShowAlert() }}>Salvar</button>
         </Container>
 
 
