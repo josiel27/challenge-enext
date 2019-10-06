@@ -18,8 +18,10 @@ O usuário poderá digitar o nome do cachorro, estilizar a fonte e a cor e essa 
 * Apagar as informaçõs salvas no local storage.
 
 ## Como usar
+
+Instale o Node.js se precisar: [Como instalar o Node JS](https://medium.com/@adsonrocha/como-instalar-o-node-js-no-windows-10-cf2bd460b8a8).
+
 <ol>
-    <li>Instale o Node.js se precisar: [Como instalar o Node JS](https://medium.com/@adsonrocha/como-instalar-o-node-js-no-windows-10-cf2bd460b8a8).</li>
     <li>git clone https://github.com/josiel27/challenge-enext.git</li>
     <li>npm install</li>
     <li>npm start or npm run start</li>
