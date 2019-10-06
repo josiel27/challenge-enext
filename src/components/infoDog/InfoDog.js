@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LabelComponent from '../formComponent/LabelComponent';
 
 class InfoDog extends Component {
     constructor(props) {
@@ -12,8 +13,7 @@ class InfoDog extends Component {
         let day = ("00" + dateParams.getDate()).slice(-2);
         let month = ("00" + (dateParams.getMonth() + 1)).slice(-2);
         let year = ("0000" + dateParams.getFullYear()).slice(-4);
-        let date = day + '/' + month + '/' + year;
-        return date;
+        return day + '/' + month + '/' + year;
     }
 
     //pega a data atual para adiciona na insercao do usuario
@@ -35,13 +35,13 @@ class InfoDog extends Component {
                 {/* AQUI ELE SÓ PERMITE MOSTRAR O ELEMENTO SE ESTIVER REGISTRADO */}
                 {this.props.params.registered ?
                     <div className="label-name">
-                        <label style={this.props.params.fontStyle} >Nome: {this.props.params.nameDog}</label>
-                        <label style={this.props.params.fontStyle} >Raça: {this.props.params.breedSelected} </label>
-                        <label style={this.props.params.fontStyle} >Hora: {formattedHour} </label>
-                        <label style={this.props.params.fontStyle}>Data: {formattedDate} </label>
+                        <LabelComponent style={this.props.params.fontStyle} value={`Nome: ${this.props.params.nameDog}`}/>
+                        <LabelComponent style={this.props.params.fontStyle} value={`Raça: ${this.props.params.breedSelected}`}/>
+                        <LabelComponent style={this.props.params.fontStyle} value={`Hora: ${formattedHour}`}/>
+                        <LabelComponent style={this.props.params.fontStyle} value={`Data: ${formattedDate}`}/>
                     </div>
-                    : null};
-            <img className="dog-img" src={this.props.params.imgDogSelected} alt="A cool dog" />
+                    : null}
+                <img className="dog-img" src={this.props.params.imgDogSelected} alt="A cool dog" />
             </div>
         );
     }

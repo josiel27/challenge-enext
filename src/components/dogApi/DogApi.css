@@ -41,7 +41,7 @@
     max-width: 165px;
     width: 45vw;
     border-radius: 5px;
-    padding: 10px;
+    /* padding: 10px; */
     background: #ffffffa3;
     position: absolute;
     display: grid;
