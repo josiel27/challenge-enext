@@ -12,7 +12,6 @@ class DogApi extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      listDogAPI: [],
       nameDog: "",
       imgDogSelected: ImageDefaultDog,
       alertOptions: {
@@ -26,13 +25,11 @@ class DogApi extends Component {
       fontStyle: {
         color: "defaultValue",
         fontFamily: "defaultValue",
-      },
-      listColorFonts: ['Blue', 'Red', 'Purple', "Green", 'Black'],
-      listFonts: ['Acme', 'Anton', 'Josefin Sans', "Notable", 'Roboto']
+      }
     };
 
     // esse for carregara todos o elementos salvos no local storage
-    let objectTest = new Object();
+    let objectTest = {};
     for (const key in this.state) {
       objectTest[key] = JSON.parse(localStorage.getItem(`@challenge-enext/${key}`));
     };
@@ -42,38 +39,21 @@ class DogApi extends Component {
 
     //O bind resolve um problema causado pelo contexto do JavaScript, ele provê uma maneira de garantir que mesmo desacoplando 
     //uma função de um objeto o comportamento dele continue o mesmo, garantindo assim uma integridade do comportamento da função. 
-    this.getDogApiLIst = this.getDogApiLIst.bind(this);
     this.handleChangeBreed = this.handleChangeBreed.bind(this);
     this.handleChangeFontFamily = this.handleChangeFontFamily.bind(this);
     this.handleChangeFontColor = this.handleChangeFontColor.bind(this);
     this.handleChangeNameDog = this.handleChangeNameDog.bind(this);
   }
 
-  //É invocado imediatamente após um componente ser montado
-  componentDidMount() {
-    this.getDogApiLIst();//chama a funcao para carregar o select com as raças
-  }
-
   //Recebe a a imagem randomica da raça do cachorro selecionado
   getImgDogApi(dogSelected) {
     if (dogSelected) {
-
       let url_image = `https://dog.ceo/api/breed/${dogSelected}/images/random`;
       fetch(url_image).then(res => { return res.json(); })
         .then(json => {
           this.setState({ imgDogSelected: json.message }); //seta a image retornada no state
         }).catch(error => { this.onShowAlert('danger', `Erro: ${error}`); });
     }
-  }
-
-  //Recebe a lista de raças da api
-  getDogApiLIst() {
-    let url_coversor = `https://dog.ceo/api/breeds/list/all`;
-    fetch(url_coversor).then(res => { return res.json(); })
-      .then(json => {
-        let listDogAPI = [json.message];
-        this.setState({ listDogAPI });
-      }).catch(error => { this.onShowAlert('danger', `Erro: ${error}`); });
   }
 
   //Seta no state a raça selecionada
@@ -120,39 +100,22 @@ class DogApi extends Component {
     });
   }
 
+  //Preenche o select com as cores de fonts 
+  getOptionsListColorFonts() {
+    let listColorFonts = [];
+    listColorFonts.push(<option key='defaultValue' value=''>Selecione uma cor para o texto</option>)
+    this.state.listColorFonts.forEach(element => {
+      listColorFonts.push(<option key={element} value={element}>{element}</option>)
+    });
+    return listColorFonts;
+  };
 
   //
   //RENDER REACT
   //
   render() {
-    let options = [],
-      listFontsSelect = [],
-      listColorFonts = [];
-
-    //Preenche o select com as racas dos cachorros da API
-    this.state.listDogAPI.map(((data) => {
-      options.push(<option key='defaultValue' value=''>Selecione uma raça</option>)
-      // options.push(<option key='defaultValue' value='defaultValue' disabled>Selecione uma raça</option>)
-      for (const key in data) {
-        options.push(<option key={key} value={key}>{key}</option>)
-      }
-      return options;
-    }))
-
-    //Preenche o select com as fonts 
-    listFontsSelect.push(<option key='defaultValue' value=''>Selecione uma fonte de texto</option>)
-    this.state.listFonts.forEach(element => {
-      listFontsSelect.push(<option key={element} value={element}>{element}</option>)
-    });
-
-    //Preenche o select com as cores de fonts 
-    listColorFonts.push(<option key='defaultValue' value=''>Selecione uma cor para o texto</option>)
-    this.state.listColorFonts.forEach(element => {
-      listColorFonts.push(<option key={element} value={element}>{element}</option>)
-    });
 
     return (//retorno do "html" para apresentar no App.js
-
       <div>
         <AuxButtons /> {/* Botoes auxiliares para recarregar pagina e apagar localstorage */}
 
@@ -165,16 +128,16 @@ class DogApi extends Component {
 
           <Form onSubmit={(e) => { this.handleSubmit(e) }}> {/* Form com os insputs para novo registro */}
             <Row>{/* Select raça */}
-              <SelectComponent value={this.state.breedSelected} onChange={this.handleChangeBreed} option={options} />
+              <SelectComponent val={this.state.breedSelected} change={this.handleChangeBreed} option={'breeds'} params={this.state} />
             </Row>
             <Row>{/* Input nome dog  */}
-              <InputComponent value={this.state.nameDog} onChange={this.handleChangeNameDog} />
+              <InputComponent val={this.state.nameDog} change={this.handleChangeNameDog} />
             </Row>
             <Row>{/* Select fonte  */}
-              <SelectComponent value={this.state.fontStyle.fontFamily} onChange={this.handleChangeFontFamily} option={listFontsSelect} />
+              <SelectComponent val={this.state.fontStyle.fontFamily} change={this.handleChangeFontFamily} option={'fonts'} params={this.state} />
             </Row>
             <Row>{/* Select cor */}
-              <SelectComponent value={this.state.fontStyle.color} onChange={this.handleChangeFontColor} option={listColorFonts} />
+              <SelectComponent val={this.state.fontStyle.color} change={this.handleChangeFontColor} option={'colors'} params={this.state} />
             </Row>
             <Row>
               <ButtonSubmit value="Salvar" />

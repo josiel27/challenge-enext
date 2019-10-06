@@ -15,7 +15,7 @@ class AuxButtons extends Component {
     };
 
     render() {
-        return (
+        return ( //COMPONETES CRIADOS PARA AUXILIAR NO CARREGAMENTO DA PAGINA E PARA APAGAR O LOCAL STORAGE
             <div className="buttons-config">
                 <button className="btn btn-secondary ml-1 mt-1 col-12" onClick={() => { this.reloadPage() }}>Reload Page</button>
                 <button className="btn btn-secondary ml-1 mt-1 col-12" onClick={() => { this.deleteLocalStorage() }}>Delete Local Storage</button>

@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import './FormComponent.css'
 
 class InputComponent extends Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <input
                 className="input-name form-control"
-                value={this.props.value}
-                onChange={this.props.onChange}
+                value={this.props.val}
+                onChange={this.props.change}
                 placeholder="Digite o nome do cachorro"
                 required>
             </input>

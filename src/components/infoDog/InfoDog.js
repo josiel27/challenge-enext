@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import LabelComponent from '../formComponent/LabelComponent';
+import './InfoDog.css';
 
 class InfoDog extends Component {
     constructor(props) {
         super(props);
         this.state = props.params;
     }
-
 
     //pega a data atual para adiciona na insercao do usuario
     getFormattedDate(dateParams) {
@@ -23,12 +23,10 @@ class InfoDog extends Component {
         return hours + ':' + minutes;
     }
 
-
     render() {
         let insertionDate = new Date(this.props.params.dateTime),
             formattedDate = this.getFormattedDate(insertionDate),
             formattedHour = this.getgetFormattedHours(insertionDate);
-
 
         return (
             <div className="div-img-label" >
