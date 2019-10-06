@@ -51,11 +51,14 @@ class DogApi extends Component {
 
   //Recebe a a imagem randomica da raça do cachorro selecionado
   getImgDogApi(dogSelected) {
-    let url_image = `https://dog.ceo/api/breed/${dogSelected}/images/random`;
-    fetch(url_image).then(res => { return res.json(); })
-      .then(json => {
-        this.setState({ imgDogSelected: json.message }); //seta a image retornada no state
-      }).catch(error => { this.onShowAlert('danger', `Erro: ${error}`); });
+    if (dogSelected) {
+
+      let url_image = `https://dog.ceo/api/breed/${dogSelected}/images/random`;
+      fetch(url_image).then(res => { return res.json(); })
+        .then(json => {
+          this.setState({ imgDogSelected: json.message }); //seta a image retornada no state
+        }).catch(error => { this.onShowAlert('danger', `Erro: ${error}`); });
+    }
   }
 
   //Recebe a lista de raças da api
@@ -91,7 +94,7 @@ class DogApi extends Component {
 
   //salva as informacoes no local storage
   handleSubmit = (e) => {
-    
+
     e.preventDefault();// Prevent submit from reloading the page
 
     try {
@@ -198,7 +201,7 @@ class DogApi extends Component {
             <img className="dog-img" src={this.state.imgDogSelected} alt="A cool dog" />
           </div>
 
-          <form>
+          <form onSubmit={(e) => { this.handleSubmit(e) }}>
             <Row>
               <select className="select-breed custom-select" value={this.state.breedSelected} onChange={this.handleChangeBreed} required>
                 {options}
@@ -219,7 +222,7 @@ class DogApi extends Component {
               </select>
             </Row>
             <Row>
-              <button className="button-save btn btn-info" onClick={(e) => { this.handleSubmit(e) }}>Salvar</button>
+              <button type="submit" className="button-save btn btn-info">Salvar</button>
             </Row>
           </form>
         </Container>
