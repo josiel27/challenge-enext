@@ -1,4 +1,4 @@
-# Aplicativo desenvolvido com React.js 
+# Projeto desenvolvido com React.js 
 
 ## Desafio Enext
 Buscar em uma API pública todas as raças de cachorros. 
