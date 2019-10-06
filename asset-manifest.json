@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.aa9e78d4.chunk.css",
-    "main.js": "/react-gh-pages/static/js/main.bc2c83c5.chunk.js",
-    "main.js.map": "/react-gh-pages/static/js/main.bc2c83c5.chunk.js.map",
-    "runtime-main.js": "/react-gh-pages/static/js/runtime-main.f2ba38dd.js",
-    "runtime-main.js.map": "/react-gh-pages/static/js/runtime-main.f2ba38dd.js.map",
-    "static/css/2.0624914a.chunk.css": "/react-gh-pages/static/css/2.0624914a.chunk.css",
-    "static/js/2.2071c0b2.chunk.js": "/react-gh-pages/static/js/2.2071c0b2.chunk.js",
-    "static/js/2.2071c0b2.chunk.js.map": "/react-gh-pages/static/js/2.2071c0b2.chunk.js.map",
-    "index.html": "/react-gh-pages/index.html",
-    "precache-manifest.6776c423f6074b2f7efac4885dfad044.js": "/react-gh-pages/precache-manifest.6776c423f6074b2f7efac4885dfad044.js",
-    "service-worker.js": "/react-gh-pages/service-worker.js",
-    "static/css/2.0624914a.chunk.css.map": "/react-gh-pages/static/css/2.0624914a.chunk.css.map",
-    "static/css/main.aa9e78d4.chunk.css.map": "/react-gh-pages/static/css/main.aa9e78d4.chunk.css.map",
-    "static/media/App.css": "/react-gh-pages/static/media/Roboto-Regular.11eabca2.ttf",
-    "static/media/defaultDog.jpg": "/react-gh-pages/static/media/defaultDog.319bc19d.jpg"
+    "main.css": "/challenge-enext/static/css/main.2ad2b0a1.chunk.css",
+    "main.js": "/challenge-enext/static/js/main.100fbaaf.chunk.js",
+    "main.js.map": "/challenge-enext/static/js/main.100fbaaf.chunk.js.map",
+    "runtime-main.js": "/challenge-enext/static/js/runtime-main.66a73829.js",
+    "runtime-main.js.map": "/challenge-enext/static/js/runtime-main.66a73829.js.map",
+    "static/css/2.0624914a.chunk.css": "/challenge-enext/static/css/2.0624914a.chunk.css",
+    "static/js/2.2071c0b2.chunk.js": "/challenge-enext/static/js/2.2071c0b2.chunk.js",
+    "static/js/2.2071c0b2.chunk.js.map": "/challenge-enext/static/js/2.2071c0b2.chunk.js.map",
+    "index.html": "/challenge-enext/index.html",
+    "precache-manifest.8c267b8c99943a329fb9953ba3c1a5e6.js": "/challenge-enext/precache-manifest.8c267b8c99943a329fb9953ba3c1a5e6.js",
+    "service-worker.js": "/challenge-enext/service-worker.js",
+    "static/css/2.0624914a.chunk.css.map": "/challenge-enext/static/css/2.0624914a.chunk.css.map",
+    "static/css/main.2ad2b0a1.chunk.css.map": "/challenge-enext/static/css/main.2ad2b0a1.chunk.css.map",
+    "static/media/App.css": "/challenge-enext/static/media/Roboto-Regular.11eabca2.ttf",
+    "static/media/defaultDog.jpg": "/challenge-enext/static/media/defaultDog.319bc19d.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.f2ba38dd.js",
+    "static/js/runtime-main.66a73829.js",
     "static/css/2.0624914a.chunk.css",
     "static/js/2.2071c0b2.chunk.js",
-    "static/css/main.aa9e78d4.chunk.css",
-    "static/js/main.bc2c83c5.chunk.js"
+    "static/css/main.2ad2b0a1.chunk.css",
+    "static/js/main.100fbaaf.chunk.js"
   ]
 }
