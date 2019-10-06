@@ -234,3 +234,4 @@ class DogApi extends Component {
 }
 
 export default DogApi;
+
