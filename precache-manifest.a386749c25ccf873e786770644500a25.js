@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b2d4b39f44e374664a2063496e758555",
+    "revision": "0d1dd9e8f8fb38782fad71952e9db3c3",
     "url": "/challenge-enext/index.html"
   },
   {
@@ -8,15 +8,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/challenge-enext/static/css/2.0624914a.chunk.css"
   },
   {
-    "revision": "2b2c7900f169e6c57d91",
-    "url": "/challenge-enext/static/css/main.9c054bdc.chunk.css"
+    "revision": "2d2cea9e2b7134348d23",
+    "url": "/challenge-enext/static/css/main.a4a36536.chunk.css"
   },
   {
     "revision": "df0694fb269267203ba2",
     "url": "/challenge-enext/static/js/2.2177710e.chunk.js"
   },
   {
-    "revision": "2b2c7900f169e6c57d91",
+    "revision": "2d2cea9e2b7134348d23",
     "url": "/challenge-enext/static/js/main.3c1f6641.chunk.js"
   },
   {
