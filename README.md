@@ -18,10 +18,6 @@ O usuário poderá digitar o nome do cachorro, estilizar a fonte e a cor e essa 
 * Apagar as informaçõs salvas no local storage.
 
 ## Como usar
-* git clone https://github.com/josiel27/challenge-enext.git
-* npm install
-* npm start or npm run start
-
 <ol>
     <li>git clone https://github.com/josiel27/challenge-enext.git</li>
     <li>npm install</li>
