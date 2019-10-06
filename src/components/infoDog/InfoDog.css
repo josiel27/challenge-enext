@@ -45,6 +45,7 @@
 @media all and (min-width: 960px) {
     .label-name > label{
         font-size: 14px;
+        padding-top: 4px;
     }
 }
 
