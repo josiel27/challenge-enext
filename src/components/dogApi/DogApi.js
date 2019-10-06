@@ -190,14 +190,16 @@ class DogApi extends Component {
 
         <Container>
 
-          <div className="div-img-label">
-            <div className="label-name">
-              <label style={this.state.fontStyle} >Nome: {this.state.nameDog}</label>
-              <label style={this.state.fontStyle} >Raça: {this.state.breedSelected} </label>
-              <label style={this.state.fontStyle} >Hora: {formattedHour} </label>
-              <label style={this.state.fontStyle}>Data: {formattedDate} </label>
-              {/* now.getDay() + ", " + now.getDate() + " de " + now.getMonth() + " de " + now.getFullYear() */}
-            </div>
+          <div className="div-img-label" >
+            {/* AQUI ELE SÓ PERMITE MOSTRAR O ELEMENTO SE ESTIVER REGISTRADO */}
+            {this.state.registered ?
+              <div className="label-name">
+                <label style={this.state.fontStyle} >Nome: {this.state.nameDog}</label>
+                <label style={this.state.fontStyle} >Raça: {this.state.breedSelected} </label>
+                <label style={this.state.fontStyle} >Hora: {formattedHour} </label>
+                <label style={this.state.fontStyle}>Data: {formattedDate} </label>
+              </div>
+              : null};
             <img className="dog-img" src={this.state.imgDogSelected} alt="A cool dog" />
           </div>
 
