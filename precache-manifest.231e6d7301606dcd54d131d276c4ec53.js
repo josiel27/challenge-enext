@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0c682dec0fcb64b5fcc21968d8aabbb8",
+    "revision": "cdfa394a745982deaa7c3b6c65112a41",
     "url": "/challenge-enext/index.html"
   },
   {
