@@ -22,15 +22,9 @@
   src: url('../../assets/fonts/Roboto/Roboto-Regular.ttf');
 }
 
-
-
 .App {
   text-align: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
-}
-
-.App-logo {
-  height: 40vmin;
 }
 
 .App-header {
@@ -42,8 +36,4 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #09d3ac;
 }
