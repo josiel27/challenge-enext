@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/challenge-enext/static/css/main.2ad2b0a1.chunk.css",
-    "main.js": "/challenge-enext/static/js/main.100fbaaf.chunk.js",
-    "main.js.map": "/challenge-enext/static/js/main.100fbaaf.chunk.js.map",
+    "main.js": "/challenge-enext/static/js/main.b0a8dd9b.chunk.js",
+    "main.js.map": "/challenge-enext/static/js/main.b0a8dd9b.chunk.js.map",
     "runtime-main.js": "/challenge-enext/static/js/runtime-main.66a73829.js",
     "runtime-main.js.map": "/challenge-enext/static/js/runtime-main.66a73829.js.map",
     "static/css/2.0624914a.chunk.css": "/challenge-enext/static/css/2.0624914a.chunk.css",
     "static/js/2.2071c0b2.chunk.js": "/challenge-enext/static/js/2.2071c0b2.chunk.js",
     "static/js/2.2071c0b2.chunk.js.map": "/challenge-enext/static/js/2.2071c0b2.chunk.js.map",
     "index.html": "/challenge-enext/index.html",
-    "precache-manifest.231e6d7301606dcd54d131d276c4ec53.js": "/challenge-enext/precache-manifest.231e6d7301606dcd54d131d276c4ec53.js",
+    "precache-manifest.3aad3889c7b1038f0c6003cbb525e83d.js": "/challenge-enext/precache-manifest.3aad3889c7b1038f0c6003cbb525e83d.js",
     "service-worker.js": "/challenge-enext/service-worker.js",
     "static/css/2.0624914a.chunk.css.map": "/challenge-enext/static/css/2.0624914a.chunk.css.map",
     "static/css/main.2ad2b0a1.chunk.css.map": "/challenge-enext/static/css/main.2ad2b0a1.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.0624914a.chunk.css",
     "static/js/2.2071c0b2.chunk.js",
     "static/css/main.2ad2b0a1.chunk.css",
-    "static/js/main.100fbaaf.chunk.js"
+    "static/js/main.b0a8dd9b.chunk.js"
   ]
 }
