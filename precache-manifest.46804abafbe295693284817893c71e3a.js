@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1a3a4264d5a7cd8d22806f3fe014af61",
+    "revision": "b2d4b39f44e374664a2063496e758555",
     "url": "/challenge-enext/index.html"
   },
   {
-    "revision": "1b5d212763253fa5dcfb",
+    "revision": "df0694fb269267203ba2",
     "url": "/challenge-enext/static/css/2.0624914a.chunk.css"
   },
   {
-    "revision": "4ab48556f4ab4e9e44c9",
-    "url": "/challenge-enext/static/css/main.ce72890d.chunk.css"
+    "revision": "2b2c7900f169e6c57d91",
+    "url": "/challenge-enext/static/css/main.9c054bdc.chunk.css"
   },
   {
-    "revision": "1b5d212763253fa5dcfb",
-    "url": "/challenge-enext/static/js/2.7683a0b0.chunk.js"
+    "revision": "df0694fb269267203ba2",
+    "url": "/challenge-enext/static/js/2.2177710e.chunk.js"
   },
   {
-    "revision": "4ab48556f4ab4e9e44c9",
-    "url": "/challenge-enext/static/js/main.44efefdf.chunk.js"
+    "revision": "2b2c7900f169e6c57d91",
+    "url": "/challenge-enext/static/js/main.3c1f6641.chunk.js"
   },
   {
     "revision": "91fa74878c03d631be1a",
