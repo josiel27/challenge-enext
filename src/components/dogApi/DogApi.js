@@ -1,7 +1,12 @@
 import React, { Component } from "react";
-import { Alert, Container, Row } from 'reactstrap';
-import "./DogApi.css";
+import { Alert, Container, Row, Form } from 'reactstrap';
 import ImageDefaultDog from "../../assets/images/defaultDog.jpg";
+import InfoDog from "../infoDog/InfoDog";
+import "./DogApi.css";
+import AuxButtons from "../auxButtons/AuxButtons";
+import SelectComponent from "../formComponent/SelectComponent";
+import InputComponent from "../formComponent/InputComponent";
+import ButtonSubmit from "../formComponent/ButtonSubmit";
 
 class DogApi extends Component {
   constructor(props) {
@@ -94,9 +99,7 @@ class DogApi extends Component {
 
   //salva as informacoes no local storage
   handleSubmit = (e) => {
-
     e.preventDefault();// Prevent submit from reloading the page
-
     try {
       //salvando a data/hora do insercao no local storage.. OBS: passando o callback para garantir que o setState seja realiza primeiro.
       this.setState({ dateTime: new Date(), registered: true, nameDog: this.state.nameDog }, () => {
@@ -117,28 +120,6 @@ class DogApi extends Component {
     });
   }
 
-  //pega a data atual para adiciona na insercao do usuario
-  getFormattedDate(dateParams) {
-    let day = ("00" + dateParams.getDate()).slice(-2);
-    let month = ("00" + (dateParams.getMonth() + 1)).slice(-2);
-    let year = ("0000" + dateParams.getFullYear()).slice(-4);
-    let date = day + '/' + month + '/' + year;
-    return date;
-  }
-
-  //pega a data atual para adiciona na insercao do usuario
-  getgetFormattedHours(hoursParams) {
-    let hours = ("00" + hoursParams.getHours()).slice(-2);
-    let minutes = ("00" + hoursParams.getMinutes()).slice(-2);
-    return hours + ':' + minutes;
-  }
-
-
-  //usado para recarregar pagina
-  reloadPage = () => { window.location.reload(); }
-
-  //usado para limpar o localStorage
-  deleteLocalStorage = () => { localStorage.clear(); window.location.reload(); }
 
   //
   //RENDER REACT
@@ -146,13 +127,7 @@ class DogApi extends Component {
   render() {
     let options = [],
       listFontsSelect = [],
-      listColorFonts = [],
-      formattedDate,
-      formattedHour,
-      insertionDate = new Date(this.state.dateTime);
-
-    formattedDate = this.getFormattedDate(insertionDate);
-    formattedHour = this.getgetFormattedHours(insertionDate);
+      listColorFonts = [];
 
     //Preenche o select com as racas dos cachorros da API
     this.state.listDogAPI.map(((data) => {
@@ -178,55 +153,33 @@ class DogApi extends Component {
 
     return (//retorno do "html" para apresentar no App.js
 
-      <div className="list-dog-api" >
-        <div className="buttons-config">
-          <button className="btn btn-secondary ml-1 mt-1 col-12" onClick={() => { this.reloadPage() }}>Reload Page</button>
-          <button className="btn btn-secondary ml-1 mt-1 col-12" onClick={() => { this.deleteLocalStorage() }}>Delete Local Storage</button>
-        </div>
+      <div>
+        <AuxButtons /> {/* Botoes auxiliares para recarregar pagina e apagar localstorage */}
 
         <Alert className="alert" color={this.state.alertOptions.color} isOpen={this.state.alertOptions.visibleAlert}>
           {this.state.alertOptions.text}
-        </Alert>
+        </Alert> {/* Component para exibir a mensagem de alert sucesso ou falha */}
 
         <Container>
+          <InfoDog params={this.state} /> {/* Component que tras as imagem e as informações salvas no localstorage */}
 
-          <div className="div-img-label" >
-            {/* AQUI ELE SÓ PERMITE MOSTRAR O ELEMENTO SE ESTIVER REGISTRADO */}
-            {this.state.registered ?
-              <div className="label-name">
-                <label style={this.state.fontStyle} >Nome: {this.state.nameDog}</label>
-                <label style={this.state.fontStyle} >Raça: {this.state.breedSelected} </label>
-                <label style={this.state.fontStyle} >Hora: {formattedHour} </label>
-                <label style={this.state.fontStyle}>Data: {formattedDate} </label>
-              </div>
-              : null};
-            <img className="dog-img" src={this.state.imgDogSelected} alt="A cool dog" />
-          </div>
-
-          <form onSubmit={(e) => { this.handleSubmit(e) }}>
-            <Row>
-              <select className="select-breed custom-select" value={this.state.breedSelected} onChange={this.handleChangeBreed} required>
-                {options}
-
-              </select>
+          <Form onSubmit={(e) => { this.handleSubmit(e) }}> {/* Form com os insputs para novo registro */}
+            <Row>{/* Select raça */}
+              <SelectComponent value={this.state.breedSelected} onChange={this.handleChangeBreed} option={options} />
+            </Row>
+            <Row>{/* Input nome dog  */}
+              <InputComponent value={this.state.nameDog} onChange={this.handleChangeNameDog} />
+            </Row>
+            <Row>{/* Select fonte  */}
+              <SelectComponent value={this.state.fontStyle.fontFamily} onChange={this.handleChangeFontFamily} option={listFontsSelect} />
+            </Row>
+            <Row>{/* Select cor */}
+              <SelectComponent value={this.state.fontStyle.color} onChange={this.handleChangeFontColor} option={listColorFonts} />
             </Row>
             <Row>
-              <input className="input-name-dog form-control" value={this.state.nameDog} onChange={this.handleChangeNameDog} placeholder="Digite o nome do cachorro" required></input>
+              <ButtonSubmit value="Salvar" />
             </Row>
-            <Row>
-              <select className="select-font-family custom-select" value={this.state.fontStyle.fontFamily} onChange={this.handleChangeFontFamily} required>
-                {listFontsSelect}
-              </select>
-            </Row>
-            <Row>
-              <select className="select-font-color custom-select" value={this.state.fontStyle.color} onChange={this.handleChangeFontColor} required>
-                {listColorFonts}
-              </select>
-            </Row>
-            <Row>
-              <button type="submit" className="button-save btn btn-info">Salvar</button>
-            </Row>
-          </form>
+          </Form>
         </Container>
       </div >
     );

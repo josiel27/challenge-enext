@@ -19,43 +19,19 @@
     border-radius: 3px;
 }
 
-/* Ajustes imagem do cachorro */
-.dog-img{
-    max-height: 350px;
-    height: 70vw;
-    border-radius: 3px;
-    object-fit: cover;
-}
-
 /* Ajustes do elementos dentro do container */
-.dog-img,
-.select-breed, 
-.input-name-dog, 
-.button-save, 
-.select-font-family, 
-.select-font-color{
+.dog-img{
     margin: 0 auto;
     margin-top: 10px;
     width: 70vw;
     max-width: 350px;
-    font-size: 1rem
+    height: 70vw;
+    max-height: 350px;
+    font-size: 1rem;
+    border-radius: 3px;
+    object-fit: cover;
 }
 
-/* Style dos botoes de reload e delete local storage */
-.buttons-config{
-    top: 10px;
-    right: 15px;
-    max-width: 175px;
-    width: 40vw;
-    font-size: 10px;
-    position: fixed;
-    z-index: 1;
-}
-
-/* ajuste no tamanho da fonte  de reload e delete local storage*/
-.buttons-config > .btn{
-    font-size: 12px;
-}
 
 /* Style dos textos dentro da imagem do cachorro */
 .label-name{
